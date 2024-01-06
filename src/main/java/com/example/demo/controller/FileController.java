@@ -101,7 +101,7 @@ public class FileController {
             return response;
         } catch (Exception e) {
             System.out.println(e);
-            response.setStatus("Error occured hile deleting file");
+            response.setStatus("Error occured while deleting file");
             return response;
         }
     }
