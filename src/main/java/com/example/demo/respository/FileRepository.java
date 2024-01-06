@@ -58,4 +58,31 @@ public class FileRepository {
 
         return entries;
     }
+
+    public FileEntry updateFile(String fileReferenceId, FileEntry updatedEntry) {
+        Optional<FileEntry> entry = entries.stream().filter(fileEntry -> fileEntry.getFileReferenceId().equals(fileReferenceId)).findFirst();
+
+        if(entry.isEmpty()) {
+            return null;
+        }
+
+        FileEntry retrievedEntry = entry.get();
+
+        retrievedEntry = updatedEntry;
+        return retrievedEntry;
+    }
+
+    public FileEntry deleteFile(String fileReferenceId) throws IOException {
+        Optional<FileEntry> entry = entries.stream().filter(fileEntry -> fileEntry.getFileReferenceId().equals(fileReferenceId)).findFirst();
+
+        if(entry.isEmpty()) {
+            return null;
+        }
+
+        FileEntry retrievedEntry = entry.get();
+        Path path = Paths.get(retrievedEntry.getFilePath());
+        Files.deleteIfExists(path);
+        entries.remove(retrievedEntry);
+        return retrievedEntry;
+    }
 }

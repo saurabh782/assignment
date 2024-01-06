@@ -25,4 +25,12 @@ public class FileService {
     public List<FileEntry> listFiles() throws IOException {
         return repository.getAllFiles();
     }
+
+    public FileEntry updateFile(String fileReferenceId, FileEntry entry) {
+        return repository.updateFile(fileReferenceId, entry);
+    }
+
+    public FileEntry deleteFile(String fileReferenceId) throws IOException {
+        return repository.deleteFile(fileReferenceId);
+    }
 }
