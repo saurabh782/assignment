@@ -1,0 +1,14 @@
+package com.example.demo.Entry;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class OrderEntry {
+    private Long orderId;
+    private ConsumerEntry consumerEntry;
+    private RestaurantEntry restaurantEntry;
+    private DeliveryExecutiveEntry deliveryExecutiveEntry;
+    private OrderStatus status;
+}

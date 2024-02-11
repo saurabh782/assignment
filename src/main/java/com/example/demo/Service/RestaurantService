@@ -1,0 +1,30 @@
+package com.example.demo.Service;
+
+import com.example.demo.Entity.RestaurantEntity;
+import com.example.demo.Entry.RestaurantEntry;
+import com.example.demo.Repository.RestaurantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RestaurantService {
+    @Autowired
+    RestaurantRepository repository;
+
+    @Autowired
+    LocationService locationService;
+
+    public RestaurantEntry findRestaurant(Long restaurantId) {
+        RestaurantEntity entity = repository.findById(restaurantId);
+        return convertToEntry(entity);
+    }
+
+    private RestaurantEntry convertToEntry(RestaurantEntity entity) {
+        RestaurantEntry entry = new RestaurantEntry();
+        entry.setRestaurantId(entity.getRestaurantId());
+        entry.setLocationEntry(locationService.convertToEntry(entity.getLocationEntity()));
+        entry.setName(entity.getName());
+        entry.setTimeToPrepareInMinutes(entity.getTimeToPrepareInMinutes());
+        return entry;
+    }
+}

@@ -1,0 +1,18 @@
+package com.example.demo.Entry;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
+public class RouteEntry {
+    Double totalTime;
+    List<LocationEntry> route;
+
+    public RouteEntry(Double totalTime, List<LocationEntry> route) {
+        this.totalTime = totalTime;
+        this.route = route;
+    }
+}

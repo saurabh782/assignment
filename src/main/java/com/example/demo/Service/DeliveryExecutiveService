@@ -1,0 +1,29 @@
+package com.example.demo.Service;
+
+import com.example.demo.Entity.DeliveryExecutiveEntity;
+import com.example.demo.Entry.DeliveryExecutiveEntry;
+import com.example.demo.Repository.DeliveryExecutiveRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DeliveryExecutiveService {
+    @Autowired
+    private DeliveryExecutiveRepository repository;
+
+    @Autowired
+    private LocationService locationService;
+
+    public DeliveryExecutiveEntry findExecutive(Long executiveId) {
+        DeliveryExecutiveEntity entity = repository.findById(executiveId);
+        return convertToEntry(entity);
+    }
+
+    private DeliveryExecutiveEntry convertToEntry(DeliveryExecutiveEntity entity) {
+        DeliveryExecutiveEntry entry = new DeliveryExecutiveEntry();
+        entry.setName(entity.getName());
+        entry.setUserId(entity.getUserId());
+        entry.setLocationEntry(locationService.convertToEntry(entity.getLocationEntity()));
+        return entry;
+    }
+}
