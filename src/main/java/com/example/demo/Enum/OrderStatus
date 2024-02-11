@@ -1,4 +1,4 @@
-public Enum OrderStatus {
+public enum OrderStatus {
     DELIVERED,
     CANCELLED,
     ACTIVE
