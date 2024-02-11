@@ -23,7 +23,7 @@ public class RouteService {
     private DeliveryExecutiveService deliveryExecutiveService;
 
     public List<LocationEntry> findBestRoute(Long deliveryExecutiveId) {
-        List<OrderEntry> orders = orderService.findOrdersForExecutive(deliveryExecutiveId);
+        List<OrderEntry> orders = orderService.findActiveOrdersForExecutive(deliveryExecutiveId);
 
         DeliveryExecutiveEntry deliveryExecutive = deliveryExecutiveService.findExecutive(deliveryExecutiveId);
 

@@ -10,4 +10,5 @@ public class OrderEntity {
     private Long consumerId;
     private Long restaurantId;
     private Long deliveryExecutiveId;
+    private OrderStatus orderStatus;
 }

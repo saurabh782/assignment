@@ -10,4 +10,5 @@ public class OrderEntry {
     private ConsumerEntry consumerEntry;
     private RestaurantEntry restaurantEntry;
     private DeliveryExecutiveEntry deliveryExecutiveEntry;
+    private OrderStatus status;
 }

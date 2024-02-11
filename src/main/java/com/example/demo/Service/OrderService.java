@@ -23,8 +23,8 @@ public class OrderService {
     @Autowired
     private DeliveryExecutiveService deliveryExecutiveService;
 
-    public List<OrderEntry> findOrdersForExecutive(Long deliveryExecutiveId) {
-        List<OrderEntity> orderEntities = repository.findOrdersForExecutive(deliveryExecutiveId);
+    public List<OrderEntry> findActiveOrdersForExecutive(Long deliveryExecutiveId) {
+        List<OrderEntity> orderEntities = repository.findActiveOrdersForExecutive(deliveryExecutiveId);
         List<OrderEntry> entries = orderEntities.stream().map(orderEntity -> convertToEntry(orderEntity)).toList();
         return entries;
     }
@@ -35,6 +35,7 @@ public class OrderService {
         entry.setConsumerEntry(consumerService.findConsumer(orderEntity.getConsumerId()));
         entry.setRestaurantEntry(restaurantService.findRestaurant(orderEntity.getRestaurantId()));
         entry.setDeliveryExecutiveEntry(deliveryExecutiveService.findExecutive(orderEntity.getDeliveryExecutiveId()));
+        entry.setStatus(orderEntity.getStatus());
         return entry;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Entity.OrderEntity;
+import com.example.demo.Enum.OrderStatus;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,8 +10,9 @@ import java.util.stream.Collectors;
 public class OrderRepository {
     private List<OrderEntity> orderEntityList;
 
-    public List<OrderEntity> findOrdersForExecutive(Long deliveryExecutiveId) {
-        List<OrderEntity> orderEntities = orderEntityList.stream().filter(orderEntity -> orderEntity.getDeliveryExecutiveId().equals(deliveryExecutiveId)).collect(Collectors.toList());
+    public List<OrderEntity> findActiveOrdersForExecutive(Long deliveryExecutiveId) {
+        List<OrderEntity> orderEntities = orderEntityList.stream().
+                filter(orderEntity -> orderEntity.getDeliveryExecutiveId().equals(deliveryExecutiveId) && orderEntity.getStatus().equals(OrderStatus.ACTIVE)).collect(Collectors.toList());
         return orderEntities;
     }
 
