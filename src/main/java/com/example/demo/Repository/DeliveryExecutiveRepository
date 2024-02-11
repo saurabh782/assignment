@@ -1,0 +1,18 @@
+package com.example.demo.Repository;
+
+import com.example.demo.Entity.DeliveryExecutiveEntity;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public class DeliveryExecutiveRepository {
+    private List<DeliveryExecutiveEntity> executiveEntityList = new ArrayList<>();
+
+    public DeliveryExecutiveEntity findById(Long executiveId) {
+        Optional<DeliveryExecutiveEntity> entity = executiveEntityList.stream().filter(executive -> executive.getUserId().equals(executiveId)).findFirst();
+        return entity.get();
+    }
+}

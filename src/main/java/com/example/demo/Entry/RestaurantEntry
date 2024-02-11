@@ -1,0 +1,13 @@
+package com.example.demo.Entry;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class RestaurantEntry {
+    private Long restaurantId;
+    private String name;
+    private Double timeToPrepareInMinutes;
+    private LocationEntry locationEntry;
+}

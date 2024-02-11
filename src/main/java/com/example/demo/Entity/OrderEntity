@@ -1,0 +1,13 @@
+package com.example.demo.Entity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class OrderEntity {
+    private Long orderId;
+    private Long consumerId;
+    private Long restaurantId;
+    private Long deliveryExecutiveId;
+}

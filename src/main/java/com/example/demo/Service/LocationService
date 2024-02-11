@@ -1,0 +1,14 @@
+package com.example.demo.Service;
+import com.example.demo.Entity.LocationEntity;
+import com.example.demo.Entry.LocationEntry;
+import org.springframework.stereotype.Service;
+
+@Service
+public class LocationService {
+    public LocationEntry convertToEntry(LocationEntity locationEntity) {
+        LocationEntry entry = new LocationEntry();
+        entry.setLatitude(locationEntity.getLatitude());
+        entry.setLongitude(locationEntity.getLongitude());
+        return entry;
+    }
+}

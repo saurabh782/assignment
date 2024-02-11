@@ -1,0 +1,10 @@
+package com.example.demo.Entry;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ConsumerEntry extends UserEntry {
+
+}

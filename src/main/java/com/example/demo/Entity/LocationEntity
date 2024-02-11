@@ -1,0 +1,16 @@
+package com.example.demo.Entity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class LocationEntity {
+    Double latitude;
+    Double longitude;
+
+    public LocationEntity(Double latitude, Double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+}

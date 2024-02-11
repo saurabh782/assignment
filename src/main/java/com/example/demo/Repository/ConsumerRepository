@@ -1,0 +1,18 @@
+package com.example.demo.Repository;
+
+import com.example.demo.Entity.ConsumerEntity;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public class ConsumerRepository {
+    private List<ConsumerEntity> consumerList = new ArrayList<>();
+
+    public ConsumerEntity findById(Long consumerId) {
+         Optional<ConsumerEntity> entity = consumerList.stream().filter(consumer -> consumer.getUserId().equals(consumerId)).findFirst();
+         return entity.get();
+    }
+}
