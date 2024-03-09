@@ -59,23 +59,4 @@ public class UserController {
             return response;
         }
     }
-
-//    @GetMapping("/{fileReferenceId}")
-//    FileResponse retrieveFile(@PathVariable String fileReferenceId) {
-//        FileResponse response = new FileResponse();
-//        try {
-//            FileEntry file = service.getFile(fileReferenceId);
-//            if(Objects.isNull(file)) {
-//                response.setStatus("File not found");
-//            } else {
-//                response.setStatus("File retrieved successfully");
-//                response.setData(Collections.singletonList(file));
-//            }
-//            return response;
-//        } catch (Exception e) {
-//            response.setStatus("Error occurred while retrieving file");
-//            System.out.println(e);
-//            return response;
-//        }
-//    }
 }
