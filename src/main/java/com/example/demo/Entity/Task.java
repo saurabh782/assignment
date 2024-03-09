@@ -16,6 +16,7 @@ public class Task {
     private Long storyId;
     private Date deadline;
     private Long creatorId;
-    private String status;
-    private String type;
+    private String status; //Assigned, Unassigned
+    private String deadlineStatus; //SPILLOVER, DEPLOYED, READY_FOR_DEPLOYMENT
+    private String type; //Task,Subtask,Story
 }
