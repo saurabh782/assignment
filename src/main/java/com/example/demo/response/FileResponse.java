@@ -9,6 +9,6 @@ import java.util.List;
 @Getter
 @Setter
 public class FileResponse {
-    private String status;
+    private Status status;
     private List<FileEntry> data;
 }
